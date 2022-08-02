@@ -39,7 +39,7 @@ def api(command):
     check("force")  # For ScheduleOSUpdateScan
     check("identifier")  # For RemoveProfile
     if "profile" in content:  # For InstallProfile
-        profile = "/path_to/munki_repo/pkgs/profiles/%s" % content["profile"]
+        profile = f'/path_to/munki_repo/pkgs/profiles/{content["profile"]}'
         with open(profile, "rb") as f:
             bytes = f.read()
             payload["Payload"] = base64.b64encode(bytes).decode("ascii")

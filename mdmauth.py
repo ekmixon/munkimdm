@@ -21,9 +21,11 @@ def api(command):
     def check(arg):
         if arg in content:
             payload[arg] = content[arg]
+
     def check_int(arg):
         if arg in content:
             payload[arg] = int(content[arg])
+
     payload = {
         'request_type': command
     }
@@ -42,7 +44,7 @@ def api(command):
     check_int('itunes_store_id')        # For InstallVPPApplication
     if 'InstallApplication' in command:
         options = {}
-        options['purchase_method'] = int(1)
+        options['purchase_method'] = 1
         payload['options'] = options
         # Get List of Licenses associated with Serial
         params = dict(
